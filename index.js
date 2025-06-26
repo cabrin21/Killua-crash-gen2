@@ -2,12 +2,12 @@
 ┏━━━━━━━━━━━━━━━┓  
 ┃ CRASGER BASE - WHATSAPP     
 ┣━━━━━━━━━━━━━━━┛
-┃♕ Creator: CRASHER        
+┃♕ Creator: KILLUA        
 ┃♕ AI Helper: ChatGPT             
 ┃♔ Version: 2.0.0                   
 ┗━━━━━━━━━━━━━━━┛
 */
-//========CRASHER========
+//========KILLUA========
 require('./system/config');
 const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys");
 const pino = require('pino');
