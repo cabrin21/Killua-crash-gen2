@@ -1,7 +1,7 @@
 /*
-* Create By Dika Ardnt.
-* Contact Me on wa.me/6288292024190
-* Follow https://github.com/DikaArdnt
+* Create By Cabrino.
+* Contact Me on wa.me/243975074413
+* Follow https://github.com/cabrin21
 */
 //======================//
 const { extractMessageContent, getDevice, jidNormalizedUser, proto, delay, getContentType, areJidsSameUser, generateWAMessage } = require("@whiskeysockets/baileys")
