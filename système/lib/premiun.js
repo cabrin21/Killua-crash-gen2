@@ -7,7 +7,7 @@
 ┃♔ Version: 3.0.0                   
 ┗━━━━━━━━━━━━━━━┛
 */
-//========CIA BASE TAMA========
+//========KILLUA BASE TAMA========
 const fs = require("fs-extra");
 const toMs = require("ms");
 //======================
