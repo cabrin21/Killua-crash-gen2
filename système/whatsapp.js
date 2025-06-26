@@ -2,7 +2,7 @@
 ┏━━━━━━━━━━━━━━━┓
 ┃ CRASHER BASE - WHATSAPP 
 ┣━━━━━━━━━━━━━━━┛
-┃♕ Creator: KILLUA
+┃♕ Creator: KILLUA 
 ┃♕ AI Helper: ChatGPT
 ┃♔ Version: 2.0.0 
 ┗━━━━━━━━━━━━━━━┛
