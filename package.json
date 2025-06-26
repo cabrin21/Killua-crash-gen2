@@ -1,0 +1,25 @@
+{
+    "name": "killua",
+    "version": "2.0",
+    "description": "AI-powered WhatsApp Bot - Simple, Fast, and Efficient! | Dikzz",
+    "main": "index.js",
+    "type": "commonjs",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [
+        "whiskeysockets",
+        "multi-device"
+    ],
+    "author": "killua",
+    "license": "MIT",
+    "dependencies": {
+        "@adiwajshing/keyed-db": "^0.2.4",
+        "@hapi/boom": "^10.0.0",
+        "@whiskeysockets/baileys": "github:kagenouReal/Baileys",
+        "chalk": "^4.1.2",
+        "fs-extra": "^10.0.0",
+        "pino": "^7.0.5",
+        "readline": "^1.3.0"
+    }
+}
