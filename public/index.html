@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KILLUA · DARK ÉVEIL</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* === Styles existants === */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { min-height: 100vh; background: #03030a; display: flex; align-items: center; justify-content: center; padding: 1rem; position: relative; }
+    body::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, #140e1a 0%, #000000 100%); opacity: 0.9; z-index: -1; animation: breathe 8s infinite alternate; }
+    @keyframes breathe { 0% { opacity: 0.8; } 100% { opacity: 1; } }
+
+    .card { max-width: 400px; width: 100%; background: #08060e; border: 1px solid #2a1c3a; border-radius: 32px; padding: 2rem 1.8rem; box-shadow: 0 20px 40px -15px #000, 0 0 0 1px #321f4f inset; animation: cardGlow 4s infinite ease-in-out; transition: all 0.2s; }
+    @keyframes cardGlow { 0%,100% { border-color: #2a1c3a; box-shadow: 0 20px 40px -15px #000, 0 0 0 1px #321f4f inset; } 50% { border-color: #4f2e7a; box-shadow: 0 20px 40px -15px #1a0b2e, 0 0 0 1px #6b3da8 inset; } }
+
+    .header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.8rem; border-bottom: 1px solid #1f1429; padding-bottom: 0.7rem; animation: slideIn 0.4s ease-out; }
+    @keyframes slideIn { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+    .bot-name { font-size: 1.8rem; font-weight: 700; color: #dad0ff; letter-spacing: -0.5px; }
+    .bot-name i { color: #845ed7; font-size: 1.4rem; margin-left: 4px; animation: rotateBolt 3s infinite linear; }
+    @keyframes rotateBolt { 0% { transform: rotate(0deg); } 25% { transform: rotate(10deg); } 75% { transform: rotate(-10deg); } 100% { transform: rotate(0deg); } }
+
+    .version { color: #5a4a73; font-size: 0.75rem; border: 1px solid #2f2140; padding: 0.2rem 0.6rem; border-radius: 30px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 0.7; } 50% { opacity: 1; border-color: #6b4f99; } }
+
+    .sub { display: flex; align-items: center; justify-content: center; gap: 8px; color: #6b4f99; font-size: 1rem; letter-spacing: 2px; margin-bottom: 1.5rem; animation: fadeIn 0.6s; }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    .sub i { font-size: 1rem; animation: circlePulse 2s infinite; }
+    @keyframes circlePulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+    .eveil-block { background: #040209; border-radius: 24px; padding: 1.5rem; border: 1px solid #281e32; margin-bottom: 1.5rem; animation: slideUp 0.5s; transition: border 0.2s; }
+    .eveil-block:hover { border-color: #5d3b8a; }
+    @keyframes slideUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+    .eveil-title { color: #a98bd1; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .eveil-title i { color: #b188ff; animation: lightning 1.5s infinite; }
+    @keyframes lightning { 0%,90%,98% { opacity: 0.6; transform: scale(1); } 92% { opacity: 1; transform: scale(1.3); color: #ffffff; text-shadow: 0 0 10px #a57cff; } 95% { opacity: 0.8; transform: scale(1.1); } }
+
+    .field { display: flex; align-items: center; background: #0b0712; border: 1px solid #322744; border-radius: 40px; padding: 0.7rem 1.2rem; margin-bottom: 1.2rem; transition: all 0.15s; animation: fieldPop 0.7s; }
+    @keyframes fieldPop { 0% { transform: scale(0.98); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    .field:focus-within { border-color: #7550b3; box-shadow: 0 0 12px #4a2d75; transform: scale(1.02); }
+    .field i { color: #5e4285; font-size: 1rem; margin-right: 10px; transition: color 0.15s; }
+    .field:focus-within i { color: #b188ff; }
+    .field input { background: transparent; border: none; outline: none; color: #e5d5ff; width: 100%; font-size: 1rem; }
+    .field input::placeholder { color: #352b44; font-size: 0.9rem; }
+
+    .btn { background: #0d0918; border: 1.5px solid #3e2a5c; color: #d6befc; width: 100%; padding: 1rem; font-size: 1.3rem; font-weight: 600; letter-spacing: 3px; border-radius: 60px; display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer; text-transform: uppercase; position: relative; overflow: hidden; transition: all 0.1s; animation: btnAppear 0.6s; }
+    @keyframes btnAppear { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+    .btn:hover { background: #130d22; border-color: #7b4fcb; transform: translateY(-2px); box-shadow: 0 6px 15px #2a1a3f; }
+    .btn:active { transform: scale(0.96); background: #1a122b; border-color: #9d6cff; transition: 0.03s; }
+    .btn i { font-size: 1.2rem; animation: btnBolt 2s infinite; }
+    @keyframes btnBolt { 0%,100% { transform: rotate(0deg) scale(1); } 25% { transform: rotate(5deg) scale(1.1); color: #f0e2ff; } 75% { transform: rotate(-5deg) scale(1.1); color: #f0e2ff; } }
+    .btn:hover i { animation: none; transform: scale(1.2); color: #ffffff; }
+
+    .dev { display: flex; align-items: center; justify-content: center; gap: 6px; color: #4a395e; font-size: 0.8rem; margin-top: 1.2rem; border-top: 1px solid #1e1327; padding-top: 1.2rem; animation: slideUpFooter 0.8s; }
+    @keyframes slideUpFooter { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .dev strong { color: #a280cf; font-weight: 500; background: #100b18; padding: 0.2rem 0.8rem; border-radius: 30px; border: 1px solid #35284a; transition: all 0.2s; animation: devPulse 3s infinite; }
+    @keyframes devPulse { 0%,100% { border-color: #35284a; } 50% { border-color: #7b4fcb; } }
+
+    .floating-bolt { position: fixed; font-size: 1.5rem; color: #4f2e7a; opacity: 0.1; pointer-events: none; z-index: 0; animation: floatBolt 8s infinite linear; }
+    .bolt1 { top: 10%; left: 5%; animation-delay: 0s; }
+    .bolt2 { bottom: 15%; right: 5%; animation-delay: 2s; transform: rotate(20deg); }
+    .bolt3 { top: 30%; right: 10%; animation-delay: 4s; transform: rotate(-15deg); }
+    @keyframes floatBolt { 0% { transform: translateY(0) rotate(0deg); opacity: 0.1; } 25% { transform: translateY(-15px) rotate(5deg); opacity: 0.2; } 50% { transform: translateY(0) rotate(0deg); opacity: 0.1; } 75% { transform: translateY(15px) rotate(-5deg); opacity: 0.2; } 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+  </style>
+</head>
+<body>
+  <i class="fa-solid fa-bolt floating-bolt bolt1"></i>
+  <i class="fa-solid fa-bolt floating-bolt bolt2"></i>
+  <i class="fa-solid fa-bolt floating-bolt bolt3"></i>
+
+  <div class="card">
+    <div class="header">
+      <div class="bot-name">
+        KILLUA <i class="fa-solid fa-bolt"></i>
+      </div>
+      <div class="version">v1.0.0</div>
+    </div>
+
+    <div class="sub">
+      <i class="fa-regular fa-circle"></i>
+      KILLUA CRASH
+      <i class="fa-regular fa-circle"></i>
+    </div>
+
+    <div class="eveil-block">
+      <div class="eveil-title">
+        <i class="fa-solid fa-bolt"></i> ÉVEIL DU CODE <i class="fa-solid fa-bolt"></i>
+      </div>
+
+      <div class="field">
+        <i class="fa-regular fa-hashtag"></i>
+        <input type="text" placeholder="243 ..." value="243" id="codeInput">
+      </div>
+
+      <button class="btn" id="getCodeBtn">
+        <i class="fa-solid fa-bolt"></i> OBTENIR <i class="fa-solid fa-bolt"></i>
+      </button>
+    </div>
+
+    <div class="dev">
+      <i class="fa-regular fa-crown"></i>
+      <span>DEV</span>
+      <strong>KILLUA</strong>
+      <i class="fa-regular fa-crown"></i>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('getCodeBtn');
+    const codeInput = document.getElementById('codeInput');
+
+    btn.addEventListener('click', async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/code'); // Backend
+        const data = await response.json();
+        codeInput.value = data.code; // insérer le code directement dans le champ
+      } catch (err) {
+        alert('Erreur serveur ❌');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
