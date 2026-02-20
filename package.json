@@ -1,16 +1,14 @@
 {
-    "name": "killua",
-    "version": "2.0",
-    "description": "AI-powered WhatsApp Bot - Simple, Fast, and Efficient! | Dikzz",
-    "main": "index.js",
-    "type": "commonjs",
-    "scripts": {
-        "start": "node index.js"
-    },
-    "keywords": [
-        "whiskeysockets",
-        "multi-device"
-    ],
+  "name": "killua-project",
+  "version": "1.0.0",
+  "description": "KILLUA Dark Éveil - Frontend + Backend serverless",
+  "main": "index.html",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": ["killua", "code", "8chiffres"],
     "author": "killua",
     "license": "MIT",
     "dependencies": {
